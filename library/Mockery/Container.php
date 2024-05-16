@@ -50,6 +50,11 @@ use function strtolower;
 use function substr;
 use function trait_exists;
 
+/**
+ * Container for mock objects
+ *
+ * @template TMockObject of object
+ */
 class Container
 {
     public const BLOCKS = Mockery::BLOCKS;
@@ -88,7 +93,7 @@ class Container
     /**
      * Store of mock objects
      *
-     * @var array<class-string<LegacyMockInterface&MockInterface>|int,LegacyMockInterface&MockInterface>
+     * @var array<class-string<LegacyMockInterface&MockInterface&TMockObject>|array-key,LegacyMockInterface&MockInterface&TMockObject>
      */
     protected $_mocks = [];
 
@@ -163,7 +168,8 @@ class Container
     }
 
     /**
-     * @return array<class-string<LegacyMockInterface&MockInterface>|int,LegacyMockInterface&MockInterface>
+     * @template TMock of object
+     * @return array<class-string<LegacyMockInterface&MockInterface&TMockObject>|array-key,LegacyMockInterface&MockInterface&TMockObject>
      */
     public function getMocks()
     {
@@ -207,13 +213,13 @@ class Container
      * names or partials - just so long as it's something that can be mocked.
      * I'll refactor it one day so it's easier to follow.
      *
-     * @template TMock of LegacyMockInterface&MockInterface&object
+     * @template TMock of object
      *
-     * @param array|string[]|Closure ...$args
+     * @param array<class-string<TMock>|TMock|Closure(LegacyMockInterface&MockInterface&TMock):LegacyMockInterface&MockInterface&TMock|array<TMock>> $args
      *
      * @throws ReflectionException|RuntimeException
      *
-     * @return TMock
+     * @return LegacyMockInterface&MockInterface&TMock
      */
     public function mock(...$args)
     {
@@ -409,7 +415,9 @@ class Container
             }
         }
 
+        // if the last parameter passed to mock() is a closure,
         if ($expectationClosure instanceof Closure) {
+            // call the closure with the mock object
             $expectationClosure($mock);
         }
 
@@ -491,7 +499,7 @@ class Container
      * Set ordering for a group
      *
      * @param string $group
-     * @param int $order
+     * @param int    $order
      *
      * @return void
      */
@@ -539,7 +547,7 @@ class Container
      * Validate the current mock's ordering
      *
      * @param string $method
-     * @param int $order
+     * @param int    $order
      *
      * @throws Exception
      */
@@ -579,9 +587,11 @@ class Container
     /**
      * Store a mock and set its container reference
      *
-     * @param LegacyMockInterface|MockInterface $mock
+     * @template TRememberMock of object
      *
-     * @return LegacyMockInterface|MockInterface
+     * @param LegacyMockInterface&MockInterface&TRememberMock $mock
+     *
+     * @return LegacyMockInterface&MockInterface&TRememberMock
      */
     public function rememberMock(LegacyMockInterface $mock)
     {
@@ -614,11 +624,12 @@ class Container
 
     /**
      * @template TMock of object
+     * @template TMixed
      *
      * @param class-string<TMock> $mockName
-     * @param null|array<int,mixed> $constructorArgs
+     * @param null|array<TMixed>  $constructorArgs
      *
-     * @return LegacyMockInterface&MockInterface&TMock
+     * @return TMock
      */
     protected function _getInstance($mockName, $constructorArgs = null)
     {

@@ -20,19 +20,25 @@
       <code><![CDATA[Reflector::isReservedWord($type)]]></code>
     </InternalMethod>
     <InvalidArgument>
+      <code><![CDATA[$args]]></code>
       <code><![CDATA[$newMockName]]></code>
     </InvalidArgument>
     <InvalidReturnStatement>
       <code><![CDATA[$argument]]></code>
       <code><![CDATA[$container->getMocks()[$demeterMockKey] ?? null]]></code>
       <code><![CDATA['...']]></code>
+      <code><![CDATA[self::getContainer()->mock(...$args)]]></code>
+      <code><![CDATA[self::getContainer()->mock(...$args)]]></code>
+      <code><![CDATA[self::getContainer()->mock(...$args)]]></code>
+      <code><![CDATA[self::getContainer()->mock(...$args)->shouldIgnoreMissing()]]></code>
     </InvalidReturnStatement>
     <InvalidReturnType>
       <code><![CDATA[LegacyMockInterface&MockInterface&TInstanceMock]]></code>
       <code><![CDATA[LegacyMockInterface&MockInterface&TMock]]></code>
-      <code><![CDATA[LegacyMockInterface&MockInterface&TMock]]></code>
       <code><![CDATA[LegacyMockInterface&MockInterface&TNamedMock]]></code>
+      <code><![CDATA[LegacyMockInterface&MockInterface&TSpy]]></code>
       <code><![CDATA[TArray]]></code>
+      <code><![CDATA[null|(LegacyMockInterface&MockInterface&TMock)]]></code>
     </InvalidReturnType>
     <LessSpecificReturnType>
       <code><![CDATA[array<string, mixed>]]></code>
@@ -77,6 +83,8 @@
       <code><![CDATA[$value]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
+      <code><![CDATA[$args]]></code>
+      <code><![CDATA[$args]]></code>
       <code><![CDATA[$formattedArguments]]></code>
       <code><![CDATA[$k]]></code>
     </MixedArgumentTypeCoercion>
@@ -103,38 +111,31 @@
     </MixedAssignment>
     <MixedInferredReturnType>
       <code><![CDATA[ExpectationInterface]]></code>
-      <code><![CDATA[LegacyMockInterface&MockInterface]]></code>
-      <code><![CDATA[LegacyMockInterface&MockInterface&TSpy]]></code>
     </MixedInferredReturnType>
-    <MixedMethodCall>
-      <code><![CDATA[shouldIgnoreMissing]]></code>
-    </MixedMethodCall>
     <MixedOperand>
       <code><![CDATA[$argument]]></code>
     </MixedOperand>
     <MixedReturnStatement>
       <code><![CDATA[$expectations]]></code>
       <code><![CDATA[$expectations]]></code>
-      <code><![CDATA[self::getContainer()->mock(...$args)->shouldIgnoreMissing()]]></code>
     </MixedReturnStatement>
-    <NoValue>
-      <code><![CDATA[$mock]]></code>
-      <code><![CDATA[return self::getContainer()->mock(...$args);]]></code>
-      <code><![CDATA[return self::getContainer()->mock(...$args);]]></code>
-      <code><![CDATA[return self::getContainer()->mock(...$args);]]></code>
-    </NoValue>
     <NullableReturnStatement>
       <code><![CDATA[$expectations]]></code>
     </NullableReturnStatement>
     <PossiblyInvalidArgument>
       <code><![CDATA[$args]]></code>
-      <code><![CDATA[$args]]></code>
-      <code><![CDATA[$args]]></code>
-      <code><![CDATA[$args]]></code>
+      <code><![CDATA[$name]]></code>
     </PossiblyInvalidArgument>
+    <PossiblyInvalidCast>
+      <code><![CDATA[$name]]></code>
+    </PossiblyInvalidCast>
     <PossiblyNullPropertyAssignmentValue>
       <code><![CDATA[null]]></code>
     </PossiblyNullPropertyAssignmentValue>
+    <PossiblyNullReference>
+      <code><![CDATA[allows]]></code>
+      <code><![CDATA[mockery_getExpectationsFor]]></code>
+    </PossiblyNullReference>
     <PossiblyUndefinedIntArrayOffset>
       <code><![CDATA[$args[0]]]></code>
     </PossiblyUndefinedIntArrayOffset>
@@ -179,16 +180,9 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[\strpos($fqn, '\\')]]></code>
     </RiskyTruthyFalsyComparison>
-    <UnevaluatedCode>
-      <code><![CDATA[$exp->andReturn($mock);]]></code>
-      <code><![CDATA[return $mock;]]></code>
-    </UnevaluatedCode>
     <UnresolvableInclude>
       <code><![CDATA[require $fileName]]></code>
     </UnresolvableInclude>
-    <UnusedVariable>
-      <code><![CDATA[$mock]]></code>
-    </UnusedVariable>
   </file>
   <file src="library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegration.php">
     <InternalMethod>
@@ -372,41 +366,32 @@
   <file src="library/Mockery/Container.php">
     <ArgumentTypeCoercion>
       <code><![CDATA[$constructorArgs]]></code>
+      <code><![CDATA[$interfaces]]></code>
+      <code><![CDATA[$mock]]></code>
+      <code><![CDATA[$type]]></code>
+      <code><![CDATA['stdClass']]></code>
+      <code><![CDATA['stdClass']]></code>
     </ArgumentTypeCoercion>
     <DocblockTypeContradiction>
       <code><![CDATA[$arg instanceof MockConfigurationBuilder]]></code>
       <code><![CDATA[$match === false]]></code>
+      <code><![CDATA[is_object($arg)]]></code>
       <code><![CDATA[is_string($arg)]]></code>
     </DocblockTypeContradiction>
     <InvalidArgument>
-      <code><![CDATA[$keys]]></code>
-      <code><![CDATA[$quickDefinitions]]></code>
-      <code><![CDATA[$quickDefinitions]]></code>
-      <code><![CDATA[$quickDefinitions]]></code>
-      <code><![CDATA[$quickDefinitions]]></code>
+      <code><![CDATA[$constructorArgs]]></code>
     </InvalidArgument>
     <InvalidArrayOffset>
       <code><![CDATA[$mocks[$index]]]></code>
     </InvalidArrayOffset>
-    <InvalidCast>
-      <code><![CDATA[$quickDefinitions]]></code>
-      <code><![CDATA[$quickDefinitions]]></code>
-    </InvalidCast>
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[$this->_mocks]]></code>
-      <code><![CDATA[$this->_mocks]]></code>
-    </InvalidPropertyAssignmentValue>
     <InvalidReturnStatement>
-      <code><![CDATA[$this->_mocks[$reference] ?? null]]></code>
       <code><![CDATA[$this->rememberMock($mock)]]></code>
     </InvalidReturnStatement>
     <InvalidReturnType>
-      <code><![CDATA[TMock]]></code>
-      <code><![CDATA[null|(LegacyMockInterface&MockInterface&TMock)]]></code>
+      <code><![CDATA[LegacyMockInterface&MockInterface&TMock]]></code>
     </InvalidReturnType>
     <LessSpecificReturnStatement>
-      <code><![CDATA[$instance]]></code>
-      <code><![CDATA[(new ReflectionClass($mockName))->newInstanceArgs($constructorArgs)]]></code>
+      <code><![CDATA[$this->_mocks[$reference] ?? null]]></code>
     </LessSpecificReturnStatement>
     <MissingParamType>
       <code><![CDATA[$config]]></code>
@@ -423,26 +408,20 @@
             );]]></code>
     </MissingThrowsDocblock>
     <MixedArgument>
-      <code><![CDATA[$blocks]]></code>
       <code><![CDATA[$className]]></code>
       <code><![CDATA[$className]]></code>
-      <code><![CDATA[$config]]></code>
-      <code><![CDATA[$config->getTargetObject()]]></code>
-      <code><![CDATA[$config->getTargetObject()]]></code>
       <code><![CDATA[$def]]></code>
       <code><![CDATA[$name]]></code>
       <code><![CDATA[$name]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
-      <code><![CDATA[$constructorArgs]]></code>
+      <code><![CDATA[$keys]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayOffset>
       <code><![CDATA[$this->_namedMocks[$name]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$blocks]]></code>
       <code><![CDATA[$className]]></code>
-      <code><![CDATA[$config]]></code>
       <code><![CDATA[$def]]></code>
       <code><![CDATA[$exception]]></code>
       <code><![CDATA[$exceptions[]]]></code>
@@ -453,14 +432,16 @@
       <code><![CDATA[LegacyMockInterface|MockInterface]]></code>
     </MixedInferredReturnType>
     <MixedMethodCall>
+      <code><![CDATA[atLeast]]></code>
+      <code><![CDATA[byDefault]]></code>
       <code><![CDATA[getClassName]]></code>
       <code><![CDATA[getHash]]></code>
       <code><![CDATA[getName]]></code>
+      <code><![CDATA[mockery_init]]></code>
       <code><![CDATA[new $internalMockName()]]></code>
       <code><![CDATA[once]]></code>
-      <code><![CDATA[setActualOrder]]></code>
-      <code><![CDATA[setExpectedOrder]]></code>
-      <code><![CDATA[setMethodName]]></code>
+      <code><![CDATA[shouldReceive]]></code>
+      <code><![CDATA[shouldReceive]]></code>
     </MixedMethodCall>
     <MixedPropertyTypeCoercion>
       <code><![CDATA[$this->_namedMocks]]></code>
@@ -473,14 +454,22 @@
       <code><![CDATA[array<Throwable>]]></code>
     </MixedReturnTypeCoercion>
     <MoreSpecificReturnType>
-      <code><![CDATA[LegacyMockInterface&MockInterface&TMock]]></code>
+      <code><![CDATA[null|(LegacyMockInterface&MockInterface&TMock)]]></code>
     </MoreSpecificReturnType>
     <NoValue>
       <code><![CDATA[$arg]]></code>
+      <code><![CDATA[$arg]]></code>
+      <code><![CDATA[$expectationClosure]]></code>
     </NoValue>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[$blocks]]></code>
+    </PossiblyInvalidArgument>
     <PossiblyUndefinedIntArrayOffset>
       <code><![CDATA[$parts[1]]]></code>
     </PossiblyUndefinedIntArrayOffset>
+    <PossiblyUndefinedMethod>
+      <code><![CDATA[mockery_thrownExceptions]]></code>
+    </PossiblyUndefinedMethod>
     <PossiblyUnusedMethod>
       <code><![CDATA[instanceMock]]></code>
       <code><![CDATA[mockery_allocateOrder]]></code>
@@ -491,6 +480,10 @@
     <PossiblyUnusedReturnValue>
       <code><![CDATA[int]]></code>
     </PossiblyUnusedReturnValue>
+    <PropertyTypeCoercion>
+      <code><![CDATA[$this->_mocks]]></code>
+      <code><![CDATA[$this->_mocks]]></code>
+    </PropertyTypeCoercion>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[is_array($arg)]]></code>
     </RedundantConditionGivenDocblockType>
@@ -498,57 +491,26 @@
       <code><![CDATA[!strpos($type, ']')]]></code>
       <code><![CDATA[strpos($type, ',')]]></code>
     </RiskyTruthyFalsyComparison>
-    <TooManyArguments>
-      <code><![CDATA[mockery_init]]></code>
-    </TooManyArguments>
     <TypeDoesNotContainType>
       <code><![CDATA[$arg === 'null']]></code>
+      <code><![CDATA[is_callable($finalArg) && is_object($finalArg)]]></code>
+      <code><![CDATA[is_object($finalArg)]]></code>
     </TypeDoesNotContainType>
-    <UndefinedInterfaceMethod>
-      <code><![CDATA[atLeast]]></code>
-      <code><![CDATA[byDefault]]></code>
-      <code><![CDATA[mockery_thrownExceptions]]></code>
-    </UndefinedInterfaceMethod>
-    <UndefinedMagicMethod>
-      <code><![CDATA[atLeast]]></code>
-      <code><![CDATA[byDefault]]></code>
-    </UndefinedMagicMethod>
+    <UnusedVariable>
+      <code><![CDATA[$expectationClosure]]></code>
+    </UnusedVariable>
   </file>
   <file src="library/Mockery/CountValidator/AtLeast.php">
     <InvalidOperand>
       <code><![CDATA[$n]]></code>
       <code><![CDATA[$this->_limit]]></code>
     </InvalidOperand>
-    <InvalidReturnType>
-      <code><![CDATA[bool]]></code>
-    </InvalidReturnType>
-    <MissingThrowsDocblock>
-      <code><![CDATA[throw $exception;]]></code>
-    </MissingThrowsDocblock>
-    <MixedMethodCall>
-      <code><![CDATA[setActualCount]]></code>
-      <code><![CDATA[setExpectedCount]]></code>
-      <code><![CDATA[setExpectedCountComparative]]></code>
-      <code><![CDATA[setMethodName]]></code>
-    </MixedMethodCall>
   </file>
   <file src="library/Mockery/CountValidator/AtMost.php">
     <InvalidOperand>
       <code><![CDATA[$n]]></code>
       <code><![CDATA[$this->_limit]]></code>
     </InvalidOperand>
-    <InvalidReturnType>
-      <code><![CDATA[bool]]></code>
-    </InvalidReturnType>
-    <MissingThrowsDocblock>
-      <code><![CDATA[throw $exception;]]></code>
-    </MissingThrowsDocblock>
-    <MixedMethodCall>
-      <code><![CDATA[setActualCount]]></code>
-      <code><![CDATA[setExpectedCount]]></code>
-      <code><![CDATA[setExpectedCountComparative]]></code>
-      <code><![CDATA[setMethodName]]></code>
-    </MixedMethodCall>
   </file>
   <file src="library/Mockery/CountValidator/CountValidatorAbstract.php">
     <PossiblyNullPropertyAssignmentValue>
@@ -570,18 +532,6 @@
       <code><![CDATA[$n]]></code>
       <code><![CDATA[$this->_limit]]></code>
     </InvalidOperand>
-    <InvalidReturnType>
-      <code><![CDATA[bool]]></code>
-    </InvalidReturnType>
-    <MissingThrowsDocblock>
-      <code><![CDATA[throw $exception;]]></code>
-    </MissingThrowsDocblock>
-    <MixedMethodCall>
-      <code><![CDATA[setActualCount]]></code>
-      <code><![CDATA[setExpectedCount]]></code>
-      <code><![CDATA[setExpectedCountComparative]]></code>
-      <code><![CDATA[setMethodName]]></code>
-    </MixedMethodCall>
     <PossiblyNullOperand>
       <code><![CDATA[$this->_expectation->getExceptionMessage()]]></code>
     </PossiblyNullOperand>
@@ -590,12 +540,8 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="library/Mockery/Exception/BadMethodCallException.php">
-    <MissingPropertyType>
-      <code><![CDATA[$dismissed]]></code>
-    </MissingPropertyType>
     <MissingReturnType>
       <code><![CDATA[dismiss]]></code>
-      <code><![CDATA[dismissed]]></code>
     </MissingReturnType>
     <UnusedClass>
       <code><![CDATA[BadMethodCallException]]></code>
@@ -607,117 +553,30 @@
     </UnusedClass>
   </file>
   <file src="library/Mockery/Exception/InvalidCountException.php">
-    <MissingParamType>
-      <code><![CDATA[$comp]]></code>
-      <code><![CDATA[$count]]></code>
-      <code><![CDATA[$count]]></code>
-      <code><![CDATA[$name]]></code>
-    </MissingParamType>
-    <MissingPropertyType>
-      <code><![CDATA[$actual]]></code>
-      <code><![CDATA[$expected]]></code>
-      <code><![CDATA[$expectedComparative]]></code>
-      <code><![CDATA[$method]]></code>
-      <code><![CDATA[$mockObject]]></code>
-    </MissingPropertyType>
-    <MissingReturnType>
-      <code><![CDATA[getActualCount]]></code>
-      <code><![CDATA[getExpectedCount]]></code>
-      <code><![CDATA[getExpectedCountComparative]]></code>
-      <code><![CDATA[getMethodName]]></code>
-      <code><![CDATA[getMock]]></code>
-      <code><![CDATA[getMockName]]></code>
-      <code><![CDATA[setActualCount]]></code>
-      <code><![CDATA[setExpectedCount]]></code>
-      <code><![CDATA[setExpectedCountComparative]]></code>
-      <code><![CDATA[setMethodName]]></code>
-      <code><![CDATA[setMock]]></code>
-    </MissingReturnType>
     <MissingThrowsDocblock>
       <code><![CDATA[throw new RuntimeException('Illegal comparative for expected call counts set: ' . $comp);]]></code>
     </MissingThrowsDocblock>
-    <MixedMethodCall>
-      <code><![CDATA[mockery_getName]]></code>
-    </MixedMethodCall>
-    <MixedOperand>
-      <code><![CDATA[$comp]]></code>
-    </MixedOperand>
     <PossiblyUnusedMethod>
       <code><![CDATA[getActualCount]]></code>
       <code><![CDATA[getExpectedCount]]></code>
       <code><![CDATA[getExpectedCountComparative]]></code>
       <code><![CDATA[getMethodName]]></code>
       <code><![CDATA[getMockName]]></code>
-      <code><![CDATA[setActualCount]]></code>
-      <code><![CDATA[setExpectedCount]]></code>
-      <code><![CDATA[setExpectedCountComparative]]></code>
-      <code><![CDATA[setMethodName]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="library/Mockery/Exception/InvalidOrderException.php">
-    <MissingParamType>
-      <code><![CDATA[$count]]></code>
-      <code><![CDATA[$count]]></code>
-      <code><![CDATA[$name]]></code>
-    </MissingParamType>
-    <MissingPropertyType>
-      <code><![CDATA[$actual]]></code>
-      <code><![CDATA[$expected]]></code>
-      <code><![CDATA[$method]]></code>
-      <code><![CDATA[$mockObject]]></code>
-    </MissingPropertyType>
-    <MissingReturnType>
-      <code><![CDATA[getActualOrder]]></code>
-      <code><![CDATA[getExpectedOrder]]></code>
-      <code><![CDATA[getMethodName]]></code>
-      <code><![CDATA[getMock]]></code>
-      <code><![CDATA[getMockName]]></code>
-      <code><![CDATA[setActualOrder]]></code>
-      <code><![CDATA[setExpectedOrder]]></code>
-      <code><![CDATA[setMethodName]]></code>
-      <code><![CDATA[setMock]]></code>
-    </MissingReturnType>
-    <MixedMethodCall>
-      <code><![CDATA[mockery_getName]]></code>
-    </MixedMethodCall>
     <PossiblyUnusedMethod>
       <code><![CDATA[getActualOrder]]></code>
       <code><![CDATA[getExpectedOrder]]></code>
       <code><![CDATA[getMethodName]]></code>
       <code><![CDATA[getMockName]]></code>
-      <code><![CDATA[setActualOrder]]></code>
-      <code><![CDATA[setExpectedOrder]]></code>
-      <code><![CDATA[setMethodName]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="library/Mockery/Exception/NoMatchingExpectationException.php">
-    <MissingParamType>
-      <code><![CDATA[$count]]></code>
-      <code><![CDATA[$name]]></code>
-    </MissingParamType>
-    <MissingPropertyType>
-      <code><![CDATA[$actual]]></code>
-      <code><![CDATA[$method]]></code>
-      <code><![CDATA[$mockObject]]></code>
-    </MissingPropertyType>
-    <MissingReturnType>
-      <code><![CDATA[getActualArguments]]></code>
-      <code><![CDATA[getMethodName]]></code>
-      <code><![CDATA[getMock]]></code>
-      <code><![CDATA[getMockName]]></code>
-      <code><![CDATA[setActualArguments]]></code>
-      <code><![CDATA[setMethodName]]></code>
-      <code><![CDATA[setMock]]></code>
-    </MissingReturnType>
-    <MixedMethodCall>
-      <code><![CDATA[mockery_getName]]></code>
-    </MixedMethodCall>
     <PossiblyUnusedMethod>
       <code><![CDATA[getActualArguments]]></code>
       <code><![CDATA[getMethodName]]></code>
       <code><![CDATA[getMockName]]></code>
-      <code><![CDATA[setActualArguments]]></code>
-      <code><![CDATA[setMethodName]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="library/Mockery/Expectation.php">
@@ -918,8 +777,6 @@
       <code><![CDATA[throw $exception;]]></code>
     </MissingThrowsDocblock>
     <MixedMethodCall>
-      <code><![CDATA[setActualArguments]]></code>
-      <code><![CDATA[setMethodName]]></code>
       <code><![CDATA[verifyCall]]></code>
     </MixedMethodCall>
     <PossiblyNullPropertyAssignmentValue>
@@ -969,85 +826,42 @@
     </UndefinedMagicMethod>
   </file>
   <file src="library/Mockery/Generator/CachingGenerator.php">
-    <MissingPropertyType>
-      <code><![CDATA[$cache]]></code>
-    </MissingPropertyType>
-    <MissingReturnType>
-      <code><![CDATA[generate]]></code>
-    </MissingReturnType>
-    <MixedArrayAccess>
-      <code><![CDATA[$this->cache[$hash]]]></code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code><![CDATA[$this->cache[$hash]]]></code>
-    </MixedArrayAssignment>
-    <MixedAssignment>
-      <code><![CDATA[$definition]]></code>
-    </MixedAssignment>
+    <MixedInferredReturnType>
+      <code><![CDATA[string]]></code>
+    </MixedInferredReturnType>
+    <MixedPropertyTypeCoercion>
+      <code><![CDATA[$this->cache]]></code>
+    </MixedPropertyTypeCoercion>
+    <MixedReturnStatement>
+      <code><![CDATA[$this->cache[$hash] = $this->generator->generate($config)]]></code>
+    </MixedReturnStatement>
   </file>
   <file src="library/Mockery/Generator/DefinedTargetClass.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[$name]]></code>
-    </ArgumentTypeCoercion>
-    <MissingClosureParamType>
-      <code><![CDATA[$interface]]></code>
-      <code><![CDATA[$method]]></code>
-    </MissingClosureParamType>
-    <MissingParamType>
-      <code><![CDATA[$alias]]></code>
-      <code><![CDATA[$alias]]></code>
-    </MissingParamType>
-    <MissingPropertyType>
-      <code><![CDATA[$name]]></code>
-      <code><![CDATA[$rfc]]></code>
-    </MissingPropertyType>
+    <LessSpecificReturnStatement>
+      <code><![CDATA[array_unique(
+            array_merge(
+                ['\AllowDynamicProperties'],
+                array_map(
+                    static function (ReflectionAttribute $attribute): string {
+                        return '\\' . $attribute->getName();
+                    },
+                    $this->rfc->getAttributes()
+                )
+            )
+        )]]></code>
+    </LessSpecificReturnStatement>
     <MixedArgument>
-      <code><![CDATA[$interface]]></code>
-      <code><![CDATA[$method]]></code>
       <code><![CDATA[$this->rfc->getAttributes()]]></code>
-      <code><![CDATA[$this->rfc->getInterfaces()]]></code>
-      <code><![CDATA[$this->rfc->getMethods()]]></code>
     </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$child]]></code>
-      <code><![CDATA[$child]]></code>
-      <code><![CDATA[$parent]]></code>
-    </MixedAssignment>
-    <MixedInferredReturnType>
-      <code><![CDATA[getName]]></code>
-      <code><![CDATA[getNamespaceName]]></code>
-      <code><![CDATA[getShortName]]></code>
-      <code><![CDATA[implementsInterface]]></code>
-      <code><![CDATA[inNamespace]]></code>
-      <code><![CDATA[isAbstract]]></code>
-      <code><![CDATA[isFinal]]></code>
-    </MixedInferredReturnType>
-    <MixedMethodCall>
-      <code><![CDATA[getAttributes]]></code>
-      <code><![CDATA[getInterfaces]]></code>
-      <code><![CDATA[getMethods]]></code>
-      <code><![CDATA[getNamespaceName]]></code>
-      <code><![CDATA[getParentClass]]></code>
-      <code><![CDATA[getShortName]]></code>
-      <code><![CDATA[implementsInterface]]></code>
-      <code><![CDATA[inNamespace]]></code>
-      <code><![CDATA[isAbstract]]></code>
-      <code><![CDATA[isFinal]]></code>
-      <code><![CDATA[isInternal]]></code>
-      <code><![CDATA[isInternal]]></code>
-    </MixedMethodCall>
     <MixedOperand>
       <code><![CDATA[$attribute->getName()]]></code>
     </MixedOperand>
-    <MixedReturnStatement>
-      <code><![CDATA[$this->name]]></code>
-      <code><![CDATA[$this->rfc->getNamespaceName()]]></code>
-      <code><![CDATA[$this->rfc->getShortName()]]></code>
-      <code><![CDATA[$this->rfc->implementsInterface($interface)]]></code>
-      <code><![CDATA[$this->rfc->inNamespace()]]></code>
-      <code><![CDATA[$this->rfc->isAbstract()]]></code>
-      <code><![CDATA[$this->rfc->isFinal()]]></code>
-    </MixedReturnStatement>
+    <MoreSpecificImplementedParamType>
+      <code><![CDATA[$interface]]></code>
+    </MoreSpecificImplementedParamType>
+    <MoreSpecificReturnType>
+      <code><![CDATA[list<class-string>]]></code>
+    </MoreSpecificReturnType>
   </file>
   <file src="library/Mockery/Generator/Generator.php">
     <MissingReturnType>
@@ -1055,70 +869,52 @@
     </MissingReturnType>
   </file>
   <file src="library/Mockery/Generator/Method.php">
-    <MissingParamType>
-      <code><![CDATA[$args]]></code>
-      <code><![CDATA[$method]]></code>
-    </MissingParamType>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__call]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="library/Mockery/Generator/MockConfiguration.php">
-    <MissingClosureParamType>
-      <code><![CDATA[$method]]></code>
-      <code><![CDATA[$method]]></code>
-      <code><![CDATA[$method]]></code>
-    </MissingClosureParamType>
-    <MissingParamType>
-      <code><![CDATA[$className]]></code>
-      <code><![CDATA[$instanceMock]]></code>
-      <code><![CDATA[$interfaces]]></code>
-      <code><![CDATA[$mockOriginalDestructor]]></code>
-      <code><![CDATA[$name]]></code>
-      <code><![CDATA[$object]]></code>
+    <ArgumentTypeCoercion>
       <code><![CDATA[$target]]></code>
-      <code><![CDATA[$targetClassName]]></code>
-      <code><![CDATA[$targetTraitName]]></code>
-    </MissingParamType>
+      <code><![CDATA[$target]]></code>
+      <code><![CDATA[$targetInterface]]></code>
+      <code><![CDATA[$targetTrait]]></code>
+      <code><![CDATA[$targets]]></code>
+      <code><![CDATA[$this->targetClassName]]></code>
+      <code><![CDATA['\\Iterator']]></code>
+      <code><![CDATA['\\IteratorAggregate']]></code>
+      <code><![CDATA['\\IteratorAggregate']]></code>
+    </ArgumentTypeCoercion>
+    <InvalidArgument>
+      <code><![CDATA[$targets]]></code>
+    </InvalidArgument>
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[$this->targetTraits]]></code>
+      <code><![CDATA[array_unique($this->targetTraits)]]></code>
+    </InvalidPropertyAssignmentValue>
+    <LessSpecificReturnStatement>
+      <code><![CDATA[$this->allMethods = $methods]]></code>
+      <code><![CDATA[$this->targetInterfaces]]></code>
+      <code><![CDATA[$this->targetInterfaces = array_unique($this->targetInterfaces)]]></code>
+      <code><![CDATA[$this->targetTraits]]></code>
+      <code><![CDATA[$this->targetTraits]]></code>
+      <code><![CDATA[array_filter($methods, static function ($method) use ($whitelist) {
+                if ($method->isAbstract()) {
+                    return true;
+                }
+
+                return in_array(strtolower($method->getName()), $whitelist, true);
+            })]]></code>
+    </LessSpecificReturnStatement>
     <MissingPropertyType>
-      <code><![CDATA[$allMethods]]></code>
       <code><![CDATA[$blackListedMethods]]></code>
       <code><![CDATA[$constantsMap]]></code>
-      <code><![CDATA[$instanceMock]]></code>
-      <code><![CDATA[$mockOriginalDestructor]]></code>
-      <code><![CDATA[$name]]></code>
-      <code><![CDATA[$parameterOverrides]]></code>
-      <code><![CDATA[$targetClass]]></code>
-      <code><![CDATA[$targetClassName]]></code>
-      <code><![CDATA[$targetInterfaceNames]]></code>
-      <code><![CDATA[$targetInterfaces]]></code>
-      <code><![CDATA[$targetObject]]></code>
-      <code><![CDATA[$targetTraitNames]]></code>
-      <code><![CDATA[$targetTraits]]></code>
-      <code><![CDATA[$whiteListedMethods]]></code>
     </MissingPropertyType>
     <MissingReturnType>
       <code><![CDATA[addTarget]]></code>
       <code><![CDATA[addTargetInterfaceName]]></code>
       <code><![CDATA[addTargetTraitName]]></code>
       <code><![CDATA[addTargets]]></code>
-      <code><![CDATA[generateName]]></code>
-      <code><![CDATA[getAllMethods]]></code>
-      <code><![CDATA[getBlackListedMethods]]></code>
-      <code><![CDATA[getConstantsMap]]></code>
-      <code><![CDATA[getMethodsToMock]]></code>
-      <code><![CDATA[getName]]></code>
-      <code><![CDATA[getNamespaceName]]></code>
-      <code><![CDATA[getParameterOverrides]]></code>
-      <code><![CDATA[getShortName]]></code>
-      <code><![CDATA[getTargetClass]]></code>
-      <code><![CDATA[getTargetClassName]]></code>
-      <code><![CDATA[getTargetInterfaces]]></code>
-      <code><![CDATA[getTargetObject]]></code>
-      <code><![CDATA[getTargetTraits]]></code>
-      <code><![CDATA[getWhiteListedMethods]]></code>
-      <code><![CDATA[isInstanceMock]]></code>
-      <code><![CDATA[isMockOriginalDestructor]]></code>
-      <code><![CDATA[rename]]></code>
-      <code><![CDATA[requiresCallStaticTypeHintRemoval]]></code>
-      <code><![CDATA[requiresCallTypeHintRemoval]]></code>
       <code><![CDATA[setTargetClassName]]></code>
       <code><![CDATA[setTargetObject]]></code>
     </MissingReturnType>
@@ -1133,235 +929,102 @@
     </MissingThrowsDocblock>
     <MixedArgument>
       <code><![CDATA[$alias]]></code>
-      <code><![CDATA[$class->getMethods()]]></code>
-      <code><![CDATA[$className]]></code>
-      <code><![CDATA[$method->getName()]]></code>
-      <code><![CDATA[$method->getName()]]></code>
-      <code><![CDATA[$methods]]></code>
-      <code><![CDATA[$methods]]></code>
-      <code><![CDATA[$methods]]></code>
-      <code><![CDATA[$methods]]></code>
-      <code><![CDATA[$target]]></code>
-      <code><![CDATA[$target]]></code>
-      <code><![CDATA[$target]]></code>
-      <code><![CDATA[$targetInterface]]></code>
-      <code><![CDATA[$targetInterface]]></code>
-      <code><![CDATA[$targetTrait]]></code>
+      <code><![CDATA[$alias]]></code>
       <code><![CDATA[$this->blackListedMethods]]></code>
       <code><![CDATA[$this->constantsMap]]></code>
-      <code><![CDATA[$this->getBlackListedMethods()]]></code>
-      <code><![CDATA[$this->getBlackListedMethods()]]></code>
-      <code><![CDATA[$this->getName()]]></code>
-      <code><![CDATA[$this->getName()]]></code>
-      <code><![CDATA[$this->getTargetObject()]]></code>
-      <code><![CDATA[$this->getWhiteListedMethods()]]></code>
-      <code><![CDATA[$this->getWhiteListedMethods()]]></code>
-      <code><![CDATA[$this->parameterOverrides]]></code>
-      <code><![CDATA[$this->targetClassName]]></code>
-      <code><![CDATA[$this->targetClassName]]></code>
-      <code><![CDATA[$this->targetInterfaceNames]]></code>
-      <code><![CDATA[$this->targetInterfaces]]></code>
-      <code><![CDATA[$this->targetTraitNames]]></code>
-      <code><![CDATA[$this->targetTraits]]></code>
-      <code><![CDATA[$this->whiteListedMethods]]></code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[$interface]]></code>
-      <code><![CDATA[$interface]]></code>
-      <code><![CDATA[$interface]]></code>
-      <code><![CDATA[$interface]]></code>
-    </MixedArgumentTypeCoercion>
-    <MixedArrayAccess>
-      <code><![CDATA[$methods[$key]]]></code>
-      <code><![CDATA[$params[1]]]></code>
-      <code><![CDATA[$params[1]]]></code>
-      <code><![CDATA[$target[0]]]></code>
-      <code><![CDATA[$this->getBlackListedMethods()]]></code>
-      <code><![CDATA[$this->getWhiteListedMethods()]]></code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code><![CDATA[$classes[]]]></code>
-      <code><![CDATA[$this->targetInterfaceNames[]]]></code>
-      <code><![CDATA[$this->targetInterfaces[]]]></code>
-      <code><![CDATA[$this->targetInterfaces[]]]></code>
-      <code><![CDATA[$this->targetInterfaces[]]]></code>
-      <code><![CDATA[$this->targetInterfaces[]]]></code>
-      <code><![CDATA[$this->targetInterfaces[]]]></code>
-      <code><![CDATA[$this->targetTraitNames[]]]></code>
-      <code><![CDATA[$this->targetTraits[]]]></code>
-    </MixedArrayAssignment>
-    <MixedArrayOffset>
-      <code><![CDATA[$methods[$key]]]></code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$alias]]></code>
-      <code><![CDATA[$class]]></code>
-      <code><![CDATA[$className]]></code>
-      <code><![CDATA[$classes]]></code>
-      <code><![CDATA[$classes[]]]></code>
-      <code><![CDATA[$interface]]></code>
-      <code><![CDATA[$key]]></code>
-      <code><![CDATA[$method]]></code>
-      <code><![CDATA[$method]]></code>
-      <code><![CDATA[$method]]></code>
-      <code><![CDATA[$method]]></code>
-      <code><![CDATA[$methods]]></code>
-      <code><![CDATA[$methods[]]]></code>
-      <code><![CDATA[$names[]]]></code>
-      <code><![CDATA[$params]]></code>
-      <code><![CDATA[$params]]></code>
-      <code><![CDATA[$targetInterface]]></code>
-      <code><![CDATA[$targetTrait]]></code>
-      <code><![CDATA[$targets[]]]></code>
-      <code><![CDATA[$targets[]]]></code>
-      <code><![CDATA[$trait]]></code>
     </MixedAssignment>
+    <MixedInferredReturnType>
+      <code><![CDATA[array<string,scalar|array<scalar>>]]></code>
+      <code><![CDATA[array<string>]]></code>
+    </MixedInferredReturnType>
     <MixedMethodCall>
       <code><![CDATA[addPart]]></code>
       <code><![CDATA[build]]></code>
-      <code><![CDATA[getMethods]]></code>
-      <code><![CDATA[getMethods]]></code>
-      <code><![CDATA[getName]]></code>
-      <code><![CDATA[getName]]></code>
-      <code><![CDATA[getName]]></code>
-      <code><![CDATA[getName]]></code>
-      <code><![CDATA[getName]]></code>
-      <code><![CDATA[getName]]></code>
-      <code><![CDATA[getName]]></code>
-      <code><![CDATA[getName]]></code>
-      <code><![CDATA[getName]]></code>
-      <code><![CDATA[getParameters]]></code>
-      <code><![CDATA[getParameters]]></code>
-      <code><![CDATA[hasInternalAncestor]]></code>
-      <code><![CDATA[implementsInterface]]></code>
-      <code><![CDATA[isAbstract]]></code>
-      <code><![CDATA[isAbstract]]></code>
-      <code><![CDATA[isArray]]></code>
-      <code><![CDATA[isArray]]></code>
-      <code><![CDATA[isFinal]]></code>
     </MixedMethodCall>
-    <MixedOperand>
-      <code><![CDATA[$target]]></code>
-    </MixedOperand>
+    <MixedReturnStatement>
+      <code><![CDATA[$this->blackListedMethods]]></code>
+      <code><![CDATA[$this->constantsMap]]></code>
+    </MixedReturnStatement>
+    <MoreSpecificReturnType>
+      <code><![CDATA[list<Method>]]></code>
+      <code><![CDATA[list<Method>]]></code>
+      <code><![CDATA[list<TargetClassInterface>]]></code>
+      <code><![CDATA[list<TargetClassInterface>]]></code>
+    </MoreSpecificReturnType>
+    <PossiblyNullArgument>
+      <code><![CDATA[$this->getName()]]></code>
+      <code><![CDATA[$this->getName()]]></code>
+    </PossiblyNullArgument>
+    <PossiblyUndefinedIntArrayOffset>
+      <code><![CDATA[$params[1]]]></code>
+    </PossiblyUndefinedIntArrayOffset>
     <PossiblyUnusedMethod>
       <code><![CDATA[getParameterOverrides]]></code>
     </PossiblyUnusedMethod>
+    <PropertyTypeCoercion>
+      <code><![CDATA[$methods]]></code>
+    </PropertyTypeCoercion>
   </file>
   <file src="library/Mockery/Generator/MockConfigurationBuilder.php">
     <MissingParamType>
-      <code><![CDATA[$blackListedMethod]]></code>
-      <code><![CDATA[$instanceMock]]></code>
-      <code><![CDATA[$mockDestructor]]></code>
-      <code><![CDATA[$name]]></code>
-      <code><![CDATA[$target]]></code>
-      <code><![CDATA[$targets]]></code>
       <code><![CDATA[$whiteListedMethod]]></code>
     </MissingParamType>
-    <MissingPropertyType>
-      <code><![CDATA[$blackListedMethods]]></code>
-      <code><![CDATA[$constantsMap]]></code>
-      <code><![CDATA[$instanceMock]]></code>
-      <code><![CDATA[$mockOriginalDestructor]]></code>
-      <code><![CDATA[$name]]></code>
-      <code><![CDATA[$parameterOverrides]]></code>
-      <code><![CDATA[$php7SemiReservedKeywords]]></code>
-      <code><![CDATA[$targets]]></code>
-      <code><![CDATA[$whiteListedMethods]]></code>
-    </MissingPropertyType>
     <MissingReturnType>
-      <code><![CDATA[addBlackListedMethod]]></code>
-      <code><![CDATA[addBlackListedMethods]]></code>
-      <code><![CDATA[addTarget]]></code>
-      <code><![CDATA[addTargets]]></code>
-      <code><![CDATA[addWhiteListedMethod]]></code>
-      <code><![CDATA[addWhiteListedMethods]]></code>
-      <code><![CDATA[getMockConfiguration]]></code>
-      <code><![CDATA[setBlackListedMethods]]></code>
-      <code><![CDATA[setConstantsMap]]></code>
       <code><![CDATA[setInstanceMock]]></code>
       <code><![CDATA[setMockOriginalDestructor]]></code>
       <code><![CDATA[setName]]></code>
-      <code><![CDATA[setParameterOverrides]]></code>
-      <code><![CDATA[setWhiteListedMethods]]></code>
     </MissingReturnType>
-    <MixedArgument>
-      <code><![CDATA[$this->blackListedMethods]]></code>
-      <code><![CDATA[$this->blackListedMethods]]></code>
+    <MixedArgumentTypeCoercion>
       <code><![CDATA[$this->constantsMap]]></code>
       <code><![CDATA[$this->parameterOverrides]]></code>
-      <code><![CDATA[$this->php7SemiReservedKeywords]]></code>
       <code><![CDATA[$this->targets]]></code>
       <code><![CDATA[$this->whiteListedMethods]]></code>
-    </MixedArgument>
-    <MixedArrayAssignment>
-      <code><![CDATA[$this->blackListedMethods[]]]></code>
-      <code><![CDATA[$this->targets[]]]></code>
-      <code><![CDATA[$this->whiteListedMethods[]]]></code>
-    </MixedArrayAssignment>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$method]]></code>
-      <code><![CDATA[$method]]></code>
-      <code><![CDATA[$target]]></code>
     </MixedAssignment>
     <PossiblyUnusedMethod>
       <code><![CDATA[addWhiteListedMethods]]></code>
       <code><![CDATA[setBlackListedMethods]]></code>
       <code><![CDATA[setWhiteListedMethods]]></code>
     </PossiblyUnusedMethod>
+    <PropertyNotSetInConstructor>
+      <code><![CDATA[$name]]></code>
+    </PropertyNotSetInConstructor>
+    <PropertyTypeCoercion>
+      <code><![CDATA[array_diff($this->blackListedMethods, $this->php7SemiReservedKeywords)]]></code>
+    </PropertyTypeCoercion>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(bool) $instanceMock]]></code>
+      <code><![CDATA[(bool) $mockDestructor]]></code>
+    </RedundantCastGivenDocblockType>
   </file>
   <file src="library/Mockery/Generator/MockDefinition.php">
-    <MissingParamType>
-      <code><![CDATA[$code]]></code>
-    </MissingParamType>
-    <MissingPropertyType>
-      <code><![CDATA[$code]]></code>
-      <code><![CDATA[$config]]></code>
-    </MissingPropertyType>
-    <MissingReturnType>
-      <code><![CDATA[getClassName]]></code>
-      <code><![CDATA[getCode]]></code>
-      <code><![CDATA[getConfig]]></code>
-    </MissingReturnType>
-    <MissingThrowsDocblock>
-      <code><![CDATA[throw new InvalidArgumentException('MockConfiguration must contain a name');]]></code>
-    </MissingThrowsDocblock>
-    <MixedMethodCall>
-      <code><![CDATA[getName]]></code>
-    </MixedMethodCall>
+    <InvalidNullableReturnType>
+      <code><![CDATA[string]]></code>
+    </InvalidNullableReturnType>
+    <NullableReturnStatement>
+      <code><![CDATA[$this->config->getName()]]></code>
+    </NullableReturnStatement>
     <PossiblyUnusedMethod>
       <code><![CDATA[getConfig]]></code>
     </PossiblyUnusedMethod>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[! $config->getName()]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="library/Mockery/Generator/MockNameBuilder.php">
-    <InvalidArgument>
-      <code><![CDATA[$parts]]></code>
-    </InvalidArgument>
-    <MissingParamType>
-      <code><![CDATA[$part]]></code>
-    </MissingParamType>
-    <MissingPropertyType>
-      <code><![CDATA[$mockCounter]]></code>
-      <code><![CDATA[$parts]]></code>
-    </MissingPropertyType>
     <MissingReturnType>
       <code><![CDATA[addPart]]></code>
-      <code><![CDATA[build]]></code>
     </MissingReturnType>
-    <MixedArgument>
-      <code><![CDATA[$part]]></code>
-    </MixedArgument>
-    <MixedArrayAssignment>
-      <code><![CDATA[$this->parts[]]]></code>
-    </MixedArrayAssignment>
-    <MixedAssignment>
-      <code><![CDATA[$part]]></code>
-      <code><![CDATA[static::$mockCounter]]></code>
-    </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[static::$mockCounter]]></code>
-    </MixedOperand>
   </file>
   <file src="library/Mockery/Generator/Parameter.php">
+    <InvalidArgument>
+      <code><![CDATA[false]]></code>
+    </InvalidArgument>
     <InvalidOperand>
       <code><![CDATA[self::$parameterCounter++]]></code>
     </InvalidOperand>
@@ -1371,183 +1034,64 @@
     <InvalidReturnType>
       <code><![CDATA[null|ReflectionClass]]></code>
     </InvalidReturnType>
-    <MissingParamType>
-      <code><![CDATA[$method]]></code>
-    </MissingParamType>
     <PossiblyNullArgument>
       <code><![CDATA[$typeHint]]></code>
     </PossiblyNullArgument>
     <PossiblyUnusedMethod>
+      <code><![CDATA[__call]]></code>
       <code><![CDATA[getClass]]></code>
       <code><![CDATA[getTypeHintAsString]]></code>
-      <code><![CDATA[isArray]]></code>
     </PossiblyUnusedMethod>
-  </file>
-  <file src="library/Mockery/Generator/StringManipulation/Pass/AvoidMethodClashPass.php">
-    <MissingClosureParamType>
-      <code><![CDATA[$method]]></code>
-    </MissingClosureParamType>
-    <MissingClosureReturnType>
-      <code><![CDATA[static function ($method) {]]></code>
-    </MissingClosureReturnType>
-    <MissingParamType>
-      <code><![CDATA[$code]]></code>
-    </MissingParamType>
-    <MissingReturnType>
-      <code><![CDATA[apply]]></code>
-    </MissingReturnType>
-    <MixedArgument>
-      <code><![CDATA[$code]]></code>
-      <code><![CDATA[$config->getMethodsToMock()]]></code>
-    </MixedArgument>
-    <MixedMethodCall>
-      <code><![CDATA[getName]]></code>
-    </MixedMethodCall>
-  </file>
-  <file src="library/Mockery/Generator/StringManipulation/Pass/CallTypeHintPass.php">
-    <MissingParamType>
-      <code><![CDATA[$code]]></code>
-    </MissingParamType>
-    <MissingReturnType>
-      <code><![CDATA[apply]]></code>
-    </MissingReturnType>
-    <MixedArgument>
-      <code><![CDATA[$code]]></code>
-      <code><![CDATA[$code]]></code>
-    </MixedArgument>
-  </file>
-  <file src="library/Mockery/Generator/StringManipulation/Pass/ClassAttributesPass.php">
-    <MissingParamType>
-      <code><![CDATA[$code]]></code>
-    </MissingParamType>
-    <MissingReturnType>
-      <code><![CDATA[apply]]></code>
-    </MissingReturnType>
-    <MixedArgument>
-      <code><![CDATA[$code]]></code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$class]]></code>
-    </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[getAttributes]]></code>
-    </MixedMethodCall>
-  </file>
-  <file src="library/Mockery/Generator/StringManipulation/Pass/ClassNamePass.php">
-    <MissingParamType>
-      <code><![CDATA[$code]]></code>
-    </MissingParamType>
-    <MissingReturnType>
-      <code><![CDATA[apply]]></code>
-    </MissingReturnType>
-    <MixedArgument>
-      <code><![CDATA[$code]]></code>
-      <code><![CDATA[$namespace]]></code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$className]]></code>
-      <code><![CDATA[$namespace]]></code>
-    </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$className]]></code>
-    </MixedOperand>
   </file>
   <file src="library/Mockery/Generator/StringManipulation/Pass/ClassPass.php">
     <ArgumentTypeCoercion>
       <code><![CDATA[$className]]></code>
     </ArgumentTypeCoercion>
-    <MissingParamType>
-      <code><![CDATA[$code]]></code>
-    </MissingParamType>
-    <MissingReturnType>
-      <code><![CDATA[apply]]></code>
-    </MissingReturnType>
-    <MixedArgument>
-      <code><![CDATA[$code]]></code>
-      <code><![CDATA[$target->getName()]]></code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$target]]></code>
-    </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[getName]]></code>
-      <code><![CDATA[isFinal]]></code>
-    </MixedMethodCall>
   </file>
   <file src="library/Mockery/Generator/StringManipulation/Pass/ConstantsPass.php">
-    <MissingParamType>
-      <code><![CDATA[$code]]></code>
-    </MissingParamType>
-    <MissingReturnType>
-      <code><![CDATA[apply]]></code>
-    </MissingReturnType>
-    <MixedArgument>
-      <code><![CDATA[$cm]]></code>
-      <code><![CDATA[$code]]></code>
-      <code><![CDATA[$code]]></code>
-      <code><![CDATA[$constant]]></code>
-      <code><![CDATA[$name]]></code>
-    </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$cm[$name]]]></code>
-    </MixedArrayAccess>
-    <MixedArrayOffset>
-      <code><![CDATA[$cm[$name]]]></code>
-    </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$cm]]></code>
-      <code><![CDATA[$constant]]></code>
-      <code><![CDATA[$name]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
-    <PossiblyInvalidOperand>
-      <code><![CDATA[substr_replace($code, $constantsCode, $offset)]]></code>
-    </PossiblyInvalidOperand>
+    <PossiblyInvalidIterator>
+      <code><![CDATA[$cm[$name]]]></code>
+    </PossiblyInvalidIterator>
+    <PossiblyNullArgument>
+      <code><![CDATA[$name]]></code>
+    </PossiblyNullArgument>
   </file>
   <file src="library/Mockery/Generator/StringManipulation/Pass/InstanceMockPass.php">
     <MissingParamType>
       <code><![CDATA[$class]]></code>
       <code><![CDATA[$code]]></code>
-      <code><![CDATA[$code]]></code>
     </MissingParamType>
     <MissingReturnType>
       <code><![CDATA[appendToClass]]></code>
-      <code><![CDATA[apply]]></code>
     </MissingReturnType>
     <MixedArgument>
       <code><![CDATA[$class]]></code>
       <code><![CDATA[$class]]></code>
     </MixedArgument>
+    <MixedInferredReturnType>
+      <code><![CDATA[string]]></code>
+    </MixedInferredReturnType>
     <MixedOperand>
       <code><![CDATA[$code]]></code>
     </MixedOperand>
+    <MixedReturnStatement>
+      <code><![CDATA[$this->appendToClass($code, static::INSTANCE_MOCK_CODE)]]></code>
+    </MixedReturnStatement>
     <PossiblyFalseArgument>
       <code><![CDATA[$lastBrace]]></code>
     </PossiblyFalseArgument>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[apply]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="library/Mockery/Generator/StringManipulation/Pass/InterfacePass.php">
     <ArgumentTypeCoercion>
       <code><![CDATA[$name]]></code>
     </ArgumentTypeCoercion>
-    <MissingParamType>
-      <code><![CDATA[$code]]></code>
-    </MissingParamType>
-    <MissingReturnType>
-      <code><![CDATA[apply]]></code>
-    </MissingReturnType>
     <MixedArgument>
-      <code><![CDATA[$code]]></code>
-      <code><![CDATA[$i->getName()]]></code>
       <code><![CDATA[$i->getName()]]></code>
     </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$i]]></code>
-    </MixedAssignment>
     <MixedMethodCall>
-      <code><![CDATA[getName]]></code>
       <code><![CDATA[getName]]></code>
     </MixedMethodCall>
     <MixedOperand>
@@ -1581,15 +1125,9 @@
       <code><![CDATA[renderTypeHint]]></code>
     </MissingReturnType>
     <MixedArgument>
-      <code><![CDATA[$config->getTargetClass()]]></code>
-      <code><![CDATA[$interface]]></code>
       <code><![CDATA[$method]]></code>
-      <code><![CDATA[$method->getName()]]></code>
-      <code><![CDATA[$method->getName()]]></code>
-      <code><![CDATA[$method->getName()]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$interface]]></code>
       <code><![CDATA[$method]]></code>
       <code><![CDATA[$name]]></code>
     </MixedAssignment>
@@ -1600,14 +1138,6 @@
     <PossiblyUndefinedIntArrayOffset>
       <code><![CDATA[$matches[0]]]></code>
     </PossiblyUndefinedIntArrayOffset>
-    <UndefinedMagicMethod>
-      <code><![CDATA[getName]]></code>
-      <code><![CDATA[getName]]></code>
-      <code><![CDATA[getName]]></code>
-      <code><![CDATA[getName]]></code>
-      <code><![CDATA[getName]]></code>
-      <code><![CDATA[isStatic]]></code>
-    </UndefinedMagicMethod>
   </file>
   <file src="library/Mockery/Generator/StringManipulation/Pass/MethodDefinitionPass.php">
     <InvalidCast>
@@ -1620,14 +1150,12 @@
     <MissingParamType>
       <code><![CDATA[$class]]></code>
       <code><![CDATA[$code]]></code>
-      <code><![CDATA[$code]]></code>
       <code><![CDATA[$config]]></code>
       <code><![CDATA[$config]]></code>
       <code><![CDATA[$method]]></code>
     </MissingParamType>
     <MissingReturnType>
       <code><![CDATA[appendToClass]]></code>
-      <code><![CDATA[apply]]></code>
       <code><![CDATA[renderMethodBody]]></code>
       <code><![CDATA[renderParams]]></code>
       <code><![CDATA[renderReturnType]]></code>
@@ -1637,13 +1165,9 @@
       <code><![CDATA[$class]]></code>
       <code><![CDATA[$class]]></code>
       <code><![CDATA[$class->getName()]]></code>
-      <code><![CDATA[$class->getName()]]></code>
-      <code><![CDATA[$class->getName()]]></code>
-      <code><![CDATA[$method]]></code>
       <code><![CDATA[$method->getParameters()]]></code>
       <code><![CDATA[$overrides[$class_name][$method->getName()]]]></code>
       <code><![CDATA[$overrides[strtolower($class->getName())][$method->getName()]]]></code>
-      <code><![CDATA[$param->__toString()]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$param]]></code>
@@ -1657,24 +1181,20 @@
     <MixedArrayOffset>
       <code><![CDATA[$overrides[$class_name][$method->getName()]]]></code>
       <code><![CDATA[$overrides[$class_name][$method->getName()]]]></code>
-      <code><![CDATA[$overrides[strtolower($class->getName())][$method->getName()]]]></code>
-      <code><![CDATA[$overrides[strtolower($class->getName())][$method->getName()]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$class]]></code>
-      <code><![CDATA[$class]]></code>
       <code><![CDATA[$code]]></code>
       <code><![CDATA[$defaultValue]]></code>
-      <code><![CDATA[$method]]></code>
       <code><![CDATA[$overrides]]></code>
       <code><![CDATA[$overrides]]></code>
       <code><![CDATA[$paramDef]]></code>
     </MixedAssignment>
+    <MixedInferredReturnType>
+      <code><![CDATA[string]]></code>
+    </MixedInferredReturnType>
     <MixedMethodCall>
       <code><![CDATA[getDeclaringClass]]></code>
-      <code><![CDATA[getName]]></code>
-      <code><![CDATA[getName]]></code>
-      <code><![CDATA[getName]]></code>
       <code><![CDATA[getName]]></code>
       <code><![CDATA[getName]]></code>
       <code><![CDATA[getName]]></code>
@@ -1682,181 +1202,86 @@
       <code><![CDATA[getParameterOverrides]]></code>
       <code><![CDATA[getParameters]]></code>
       <code><![CDATA[getReturnType]]></code>
-      <code><![CDATA[isInternal]]></code>
-      <code><![CDATA[isProtected]]></code>
-      <code><![CDATA[isPublic]]></code>
       <code><![CDATA[isStatic]]></code>
-      <code><![CDATA[isStatic]]></code>
-      <code><![CDATA[returnsReference]]></code>
     </MixedMethodCall>
     <MixedOperand>
       <code><![CDATA[$code]]></code>
-      <code><![CDATA[$method->getName()]]></code>
       <code><![CDATA[$paramDef]]></code>
       <code><![CDATA[$this->renderMethodBody($method, $config)]]></code>
       <code><![CDATA[$this->renderParams($method, $config)]]></code>
       <code><![CDATA[$this->renderReturnType($method)]]></code>
     </MixedOperand>
+    <MixedReturnStatement>
+      <code><![CDATA[$code]]></code>
+    </MixedReturnStatement>
     <PossiblyFalseArgument>
       <code><![CDATA[$lastBrace]]></code>
     </PossiblyFalseArgument>
     <PossiblyUndefinedIntArrayOffset>
       <code><![CDATA[$matches[1]]]></code>
     </PossiblyUndefinedIntArrayOffset>
+    <RedundantIdentityWithTrue>
+      <code><![CDATA[$param->isDefaultValueAvailable() !== false]]></code>
+    </RedundantIdentityWithTrue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$type]]></code>
     </RiskyTruthyFalsyComparison>
     <TypeDoesNotContainType>
       <code><![CDATA[strpos($param, '&') !== false]]></code>
     </TypeDoesNotContainType>
-    <UndefinedMagicMethod>
-      <code><![CDATA[__toString]]></code>
-      <code><![CDATA[getDeclaringClass]]></code>
-      <code><![CDATA[getDefaultValue]]></code>
-      <code><![CDATA[getName]]></code>
-      <code><![CDATA[getName]]></code>
-      <code><![CDATA[isDefaultValueAvailable]]></code>
-      <code><![CDATA[isDefaultValueConstant]]></code>
-      <code><![CDATA[isOptional]]></code>
-      <code><![CDATA[isPassedByReference]]></code>
-    </UndefinedMagicMethod>
-  </file>
-  <file src="library/Mockery/Generator/StringManipulation/Pass/Pass.php">
-    <MissingParamType>
-      <code><![CDATA[$code]]></code>
-    </MissingParamType>
-    <MissingReturnType>
-      <code><![CDATA[apply]]></code>
-    </MissingReturnType>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[apply]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="library/Mockery/Generator/StringManipulation/Pass/RemoveBuiltinMethodsThatAreFinalPass.php">
-    <MissingParamType>
-      <code><![CDATA[$code]]></code>
-    </MissingParamType>
     <MissingPropertyType>
       <code><![CDATA[$methods]]></code>
     </MissingPropertyType>
-    <MissingReturnType>
-      <code><![CDATA[apply]]></code>
-    </MissingReturnType>
     <MixedArgument>
-      <code><![CDATA[$code]]></code>
       <code><![CDATA[$this->methods[$method->getName()]]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$this->methods[$method->getName()]]]></code>
     </MixedArrayAccess>
-    <MixedArrayOffset>
-      <code><![CDATA[$this->methods[$method->getName()]]]></code>
-      <code><![CDATA[$this->methods[$method->getName()]]]></code>
-    </MixedArrayOffset>
-    <MixedAssignment>
-      <code><![CDATA[$method]]></code>
-      <code><![CDATA[$target]]></code>
-    </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[getMethods]]></code>
-      <code><![CDATA[getName]]></code>
-      <code><![CDATA[getName]]></code>
-      <code><![CDATA[isFinal]]></code>
-    </MixedMethodCall>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[apply]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="library/Mockery/Generator/StringManipulation/Pass/RemoveDestructorPass.php">
-    <MissingParamType>
-      <code><![CDATA[$code]]></code>
-    </MissingParamType>
-    <MissingReturnType>
-      <code><![CDATA[apply]]></code>
-    </MissingReturnType>
-    <MixedArgument>
-      <code><![CDATA[$code]]></code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$target]]></code>
-    </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[apply]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="library/Mockery/Generator/StringManipulation/Pass/RemoveUnserializeForInternalSerializableClassesPass.php">
     <MissingParamType>
       <code><![CDATA[$class]]></code>
       <code><![CDATA[$code]]></code>
-      <code><![CDATA[$code]]></code>
     </MissingParamType>
     <MissingReturnType>
       <code><![CDATA[appendToClass]]></code>
-      <code><![CDATA[apply]]></code>
     </MissingReturnType>
     <MixedArgument>
       <code><![CDATA[$class]]></code>
       <code><![CDATA[$class]]></code>
     </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$target]]></code>
-    </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[hasInternalAncestor]]></code>
-      <code><![CDATA[implementsInterface]]></code>
-    </MixedMethodCall>
+    <MixedInferredReturnType>
+      <code><![CDATA[string]]></code>
+    </MixedInferredReturnType>
     <MixedOperand>
       <code><![CDATA[$code]]></code>
     </MixedOperand>
+    <MixedReturnStatement>
+      <code><![CDATA[$this->appendToClass(
+            $code,
+            PHP_VERSION_ID < 80100 ? self::DUMMY_METHOD_DEFINITION_LEGACY : self::DUMMY_METHOD_DEFINITION
+        )]]></code>
+    </MixedReturnStatement>
     <PossiblyFalseArgument>
       <code><![CDATA[$lastBrace]]></code>
     </PossiblyFalseArgument>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[apply]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="library/Mockery/Generator/StringManipulation/Pass/TraitPass.php">
-    <MissingClosureParamType>
-      <code><![CDATA[$trait]]></code>
-    </MissingClosureParamType>
-    <MissingParamType>
-      <code><![CDATA[$code]]></code>
-    </MissingParamType>
-    <MissingReturnType>
-      <code><![CDATA[apply]]></code>
-    </MissingReturnType>
-    <MixedArgument>
-      <code><![CDATA[$code]]></code>
-      <code><![CDATA[$trait->getName()]]></code>
-      <code><![CDATA[$traits]]></code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$traits]]></code>
-    </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[getName]]></code>
-    </MixedMethodCall>
   </file>
   <file src="library/Mockery/Generator/StringManipulationGenerator.php">
-    <MissingReturnType>
-      <code><![CDATA[addPass]]></code>
-      <code><![CDATA[generate]]></code>
-    </MissingReturnType>
-    <MixedArgument>
-      <code><![CDATA[$namedConfig]]></code>
-    </MixedArgument>
-    <MixedAssignment>
+    <ArgumentTypeCoercion>
       <code><![CDATA[$className]]></code>
-      <code><![CDATA[$code]]></code>
-      <code><![CDATA[$namedConfig]]></code>
-      <code><![CDATA[$pass]]></code>
-    </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[apply]]></code>
-    </MixedMethodCall>
+    </ArgumentTypeCoercion>
+    <MissingThrowsDocblock>
+      <code><![CDATA[new MockDefinition($namedConfig, $code)]]></code>
+    </MissingThrowsDocblock>
     <PossiblyUnusedMethod>
       <code><![CDATA[addPass]]></code>
     </PossiblyUnusedMethod>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$config->getName()]]></code>
+    </RiskyTruthyFalsyComparison>
     <UnsafeInstantiation>
       <code><![CDATA[new static([
             new CallTypeHintPass(),
@@ -1878,27 +1303,15 @@
   </file>
   <file src="library/Mockery/Generator/TargetClassInterface.php">
     <PossiblyUnusedMethod>
-      <code><![CDATA[getAttributes]]></code>
       <code><![CDATA[getShortName]]></code>
-      <code><![CDATA[hasInternalAncestor]]></code>
-      <code><![CDATA[implementsInterface]]></code>
       <code><![CDATA[inNamespace]]></code>
       <code><![CDATA[isAbstract]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="library/Mockery/Generator/UndefinedTargetClass.php">
-    <MissingParamType>
-      <code><![CDATA[$name]]></code>
-    </MissingParamType>
-    <MissingPropertyType>
-      <code><![CDATA[$name]]></code>
-    </MissingPropertyType>
-    <MixedInferredReturnType>
-      <code><![CDATA[getName]]></code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement>
-      <code><![CDATA[$this->name]]></code>
-    </MixedReturnStatement>
+    <MoreSpecificImplementedParamType>
+      <code><![CDATA[$interface]]></code>
+    </MoreSpecificImplementedParamType>
   </file>
   <file src="library/Mockery/HigherOrderMessage.php">
     <MissingParamType>
@@ -1957,9 +1370,6 @@
     </UnusedMethod>
   </file>
   <file src="library/Mockery/LegacyMockInterface.php">
-    <MissingReturnType>
-      <code><![CDATA[shouldAllowMockingMethod]]></code>
-    </MissingReturnType>
     <PossiblyUnusedMethod>
       <code><![CDATA[byDefault]]></code>
       <code><![CDATA[makePartial]]></code>
@@ -1968,6 +1378,7 @@
       <code><![CDATA[mockery_getCurrentOrder]]></code>
       <code><![CDATA[mockery_getGroups]]></code>
       <code><![CDATA[mockery_getMockableProperties]]></code>
+      <code><![CDATA[mockery_init]]></code>
       <code><![CDATA[mockery_setCurrentOrder]]></code>
       <code><![CDATA[mockery_setExpectationsFor]]></code>
       <code><![CDATA[mockery_setGroup]]></code>
@@ -1976,35 +1387,13 @@
       <code><![CDATA[shouldDeferMissing]]></code>
       <code><![CDATA[shouldHaveBeenCalled]]></code>
       <code><![CDATA[shouldHaveReceived]]></code>
-      <code><![CDATA[shouldIgnoreMissing]]></code>
       <code><![CDATA[shouldNotHaveBeenCalled]]></code>
       <code><![CDATA[shouldNotHaveReceived]]></code>
     </PossiblyUnusedMethod>
-    <UndefinedDocblockClass>
-      <code><![CDATA[null|array|Closure]]></code>
-      <code><![CDATA[null|array|Closure]]></code>
-    </UndefinedDocblockClass>
-  </file>
-  <file src="library/Mockery/Loader/EvalLoader.php">
-    <MixedArgument>
-      <code><![CDATA[$definition->getClassName()]]></code>
-    </MixedArgument>
-    <MixedOperand>
-      <code><![CDATA[$definition->getCode()]]></code>
-    </MixedOperand>
   </file>
   <file src="library/Mockery/Loader/RequireLoader.php">
-    <MissingParamType>
-      <code><![CDATA[$path]]></code>
-    </MissingParamType>
-    <MixedArgument>
-      <code><![CDATA[$definition->getClassName()]]></code>
-      <code><![CDATA[$definition->getCode()]]></code>
-      <code><![CDATA[$path]]></code>
-    </MixedArgument>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[glob($this->path . DIRECTORY_SEPARATOR . 'Mockery_*.php')]]></code>
-      <code><![CDATA[realpath($path)]]></code>
     </RiskyTruthyFalsyComparison>
     <UnusedClass>
       <code><![CDATA[RequireLoader]]></code>
@@ -2313,18 +1702,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="library/helpers.php">
-    <MissingParamType>
-      <code><![CDATA[$args]]></code>
-      <code><![CDATA[$args]]></code>
-      <code><![CDATA[$args]]></code>
-    </MissingParamType>
-    <MissingReturnType>
-      <code><![CDATA[andAnyOtherArgs]]></code>
-      <code><![CDATA[andAnyOthers]]></code>
-      <code><![CDATA[anyArgs]]></code>
-      <code><![CDATA[mock]]></code>
-      <code><![CDATA[namedMock]]></code>
-      <code><![CDATA[spy]]></code>
-    </MissingReturnType>
+    <LessSpecificReturnType>
+      <code><![CDATA[LegacyMockInterface&MockInterface&TMock]]></code>
+      <code><![CDATA[LegacyMockInterface&MockInterface&TSpy]]></code>
+    </LessSpecificReturnType>
   </file>
 </files>
