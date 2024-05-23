@@ -89,7 +89,7 @@ class CompositeExpectation implements ExpectationInterface
     /**
      * Return the parent mock of the first expectation
      *
-     * @return LegacyMockInterface&MockInterface
+     * @return LegacyMockInterface|MockInterface
      */
     public function getMock()
     {
@@ -113,7 +113,7 @@ class CompositeExpectation implements ExpectationInterface
     /**
      * Mockery API alias to getMock
      *
-     * @return LegacyMockInterface&MockInterface
+     * @return LegacyMockInterface|MockInterface
      */
     public function mock()
     {
