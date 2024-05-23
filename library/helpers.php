@@ -17,11 +17,11 @@ use Mockery\MockInterface;
 
 if (! \function_exists('mock')) {
     /**
-     * @template TMock of object
+     * @template TMock
      *
-     * @param TMock|array<class-string<TMock>|TMock|Closure(LegacyMockInterface&MockInterface&TMock):LegacyMockInterface&MockInterface&TMock|array<TMock>> ...$args
+     * @param TMock ...$args
      *
-     * @return (LegacyMockInterface|MockInterface)&TMock
+     * @return (LegacyMockInterface&TMock)|(MockInterface&TMock)
      */
     function mock(...$args)
     {
@@ -31,11 +31,11 @@ if (! \function_exists('mock')) {
 
 if (! \function_exists('spy')) {
     /**
-     * @template TSpy of object
+     * @template TSpy
      *
-     * @param TSpy|array<class-string<TSpy>|TSpy|Closure(LegacyMockInterface&MockInterface&TSpy):LegacyMockInterface&MockInterface&TSpy|array<TSpy>> ...$args
+     * @param TSpy ...$args
      *
-     * @return (LegacyMockInterface|MockInterface)&TSpy
+     * @return (LegacyMockInterface&TSpy)|(MockInterface&TSpy)
      */
     function spy(...$args)
     {
@@ -45,11 +45,11 @@ if (! \function_exists('spy')) {
 
 if (! \function_exists('namedMock')) {
     /**
-     * @template TNamedMock of object
+     * @template TNamedMock
      *
-     * @param TNamedMock|array<class-string<TNamedMock>|TNamedMock|array<TNamedMock>> ...$args
+     * @param TNamedMock ...$args
      *
-     * @return (LegacyMockInterface|MockInterface)&TNamedMock
+     * @return (LegacyMockInterface&TNamedMock)|(MockInterface&TNamedMock)
      */
     function namedMock(...$args)
     {
