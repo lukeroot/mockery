@@ -16,6 +16,7 @@ use Mockery;
 use Mockery\Exception\InvalidOrderException;
 use Mockery\Exception\RuntimeException;
 use Mockery\Generator\Generator;
+use Mockery\Generator\MockConfiguration;
 use Mockery\Generator\MockConfigurationBuilder;
 use Mockery\Loader\Loader as LoaderInterface;
 use ReflectionClass;
@@ -93,7 +94,7 @@ class Container
     /**
      * Store of mock objects
      *
-     * @var array<class-string<LegacyMockInterface&MockInterface&TMockObject>|array-key,LegacyMockInterface&MockInterface&TMockObject>
+     * @var array<class-string<(LegacyMockInterface&TMockObject)|(MockInterface&TMockObject)>,(LegacyMockInterface&TMockObject)|(MockInterface&TMockObject)>
      */
     protected $_mocks = [];
 
@@ -118,11 +119,9 @@ class Container
      * Return a specific remembered mock according to the array index it
      * was stored to in this container instance
      *
-     * @template TMock of object
+     * @param class-string<TMockObject> $reference
      *
-     * @param class-string<TMock> $reference
-     *
-     * @return null|(LegacyMockInterface&MockInterface&TMock)
+     * @return (LegacyMockInterface&TMockObject)|(MockInterface&TMockObject)|null
      */
     public function fetchMock($reference)
     {
@@ -168,8 +167,7 @@ class Container
     }
 
     /**
-     * @template TMock of object
-     * @return array<class-string<LegacyMockInterface&MockInterface&TMockObject>|array-key,LegacyMockInterface&MockInterface&TMockObject>
+     * @return array<class-string<(LegacyMockInterface&TMockObject)|(MockInterface&TMockObject)>,(LegacyMockInterface&TMockObject)|(MockInterface&TMockObject)>
      */
     public function getMocks()
     {
@@ -213,13 +211,13 @@ class Container
      * names or partials - just so long as it's something that can be mocked.
      * I'll refactor it one day so it's easier to follow.
      *
-     * @template TMock of object
+     * @template TMock
      *
-     * @param array<class-string<TMock>|TMock|Closure(LegacyMockInterface&MockInterface&TMock):LegacyMockInterface&MockInterface&TMock|array<TMock>> $args
+     * @param TMock ...$args
      *
-     * @throws ReflectionException|RuntimeException
+     * @return (LegacyMockInterface&TMock)|(MockInterface&TMock)
      *
-     * @return LegacyMockInterface&MockInterface&TMock
+     * @throws Throwable
      */
     public function mock(...$args)
     {
@@ -576,6 +574,8 @@ class Container
 
     /**
      * Verify the container mocks
+     *
+     * @return void
      */
     public function mockery_verify()
     {
@@ -587,11 +587,11 @@ class Container
     /**
      * Store a mock and set its container reference
      *
-     * @template TRememberMock of object
+     * @template TRememberMock
      *
-     * @param LegacyMockInterface&MockInterface&TRememberMock $mock
+     * @param (LegacyMockInterface&TRememberMock)|(MockInterface&TRememberMock) $mock
      *
-     * @return LegacyMockInterface&MockInterface&TRememberMock
+     * @return (LegacyMockInterface&TRememberMock)|(MockInterface&TRememberMock)
      */
     public function rememberMock(LegacyMockInterface $mock)
     {
@@ -602,8 +602,8 @@ class Container
         }
 
         /**
-         * This condition triggers for an instance mock where origin mock
-         * is already remembered
+         * This condition triggers for an instance mock
+         * where origin mock is already remembered
          */
         return $this->_mocks[] = $mock;
     }
@@ -613,7 +613,7 @@ class Container
      * which is the same as saying retrieve the current mock being programmed where you have yet to call mock()
      * to change it thus why the method name is "self" since it will be used during the programming of the same mock.
      *
-     * @return LegacyMockInterface|MockInterface
+     * @return null|(LegacyMockInterface&TMockObject)|(MockInterface&TMockObject)
      */
     public function self()
     {
@@ -623,7 +623,7 @@ class Container
     }
 
     /**
-     * @template TMock of object
+     * @template TMock
      * @template TMixed
      *
      * @param class-string<TMock> $mockName
@@ -657,6 +657,10 @@ class Container
         return $instance;
     }
 
+    /**
+     * @param MockConfiguration $config
+     * @return void
+     */
     protected function checkForNamedMockClashes($config)
     {
         $name = $config->getName();
