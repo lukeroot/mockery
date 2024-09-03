@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace Tests\Unit\Mockery;
 
 use Mockery\Adapter\Phpunit\MockeryTestCase;
+use Mockery\Matcher\AndAnyOtherArgs;
+use Mockery\Matcher\AnyArgs;
 use Mockery\MockInterface;
 use Throwable;
 
-use function mock;
-use function namedMock;
-use function spy;
 use function uniqid;
 
 /**
@@ -18,9 +17,33 @@ use function uniqid;
  */
 final class GlobalHelpersTest extends MockeryTestCase
 {
+    /**
+     * @throws Throwable
+     */
+    public function testAndAnyOtherArgs(): void
+    {
+        self::assertInstanceOf(AndAnyOtherArgs::class, \andAnyOtherArgs());
+    }
+
+    /**
+     * @throws Throwable
+     */
+    public function testAndAnyOthers(): void
+    {
+        self::assertInstanceOf(AndAnyOtherArgs::class, \andAnyOthers());
+    }
+
+    /**
+     * @throws Throwable
+     */
+    public function testAnyArgs(): void
+    {
+        self::assertInstanceOf(AnyArgs::class, \anyArgs());
+    }
+
     public function testMockCreatesAMock(): void
     {
-        $double = mock();
+        $double = \mock();
 
         self::assertInstanceOf(MockInterface::class, $double);
 
@@ -33,7 +56,7 @@ final class GlobalHelpersTest extends MockeryTestCase
     {
         $className = uniqid('Class');
 
-        $double = namedMock($className);
+        $double = \namedMock($className);
 
         self::assertInstanceOf(MockInterface::class, $double);
         self::assertInstanceOf($className, $double);
@@ -41,7 +64,7 @@ final class GlobalHelpersTest extends MockeryTestCase
 
     public function testSpyCreatesASpy(): void
     {
-        $double = spy();
+        $double = \spy();
 
         self::assertInstanceOf(MockInterface::class, $double);
         $double->foo();
