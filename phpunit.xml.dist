@@ -31,7 +31,7 @@
     </logging>
     <testsuites>
         <testsuite name="default">
-            <directory>tests</directory>
+            <directory>tests/Unit</directory>
             <exclude>tests/Unit/PHP*</exclude>
             <exclude>tests/Fixture</exclude>
         </testsuite>
