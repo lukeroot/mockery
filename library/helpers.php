@@ -10,6 +10,7 @@ declare(strict_types=1);
  * @link https://github.com/mockery/mockery for the canonical source repository
  */
 
+use DG\BypassFinals;
 use Mockery\LegacyMockInterface;
 use Mockery\Matcher\AndAnyOtherArgs;
 use Mockery\Matcher\AnyArgs;
@@ -197,4 +198,23 @@ if (! \function_exists('str_starts_with')) {
     {
         return \strncmp($haystack, $needle, \strlen($needle)) === 0;
     }
+}
+
+if (! \function_exists('isPHPUnit')) {
+    function isPHPUnit(): bool
+    {
+        if (PHP_SAPI !== 'cli' ) {
+            return false;
+        }
+
+        if (\defined('PHPUNIT_COMPOSER_INSTALL')) {
+            return true;
+        }
+
+        return \defined('__PHPUNIT_PHAR__');
+    }
+}
+
+if (isPHPUnit()) {
+    Mockery::bypassFinals();
 }
