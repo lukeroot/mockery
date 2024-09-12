@@ -8,6 +8,7 @@
  * @link https://github.com/mockery/mockery for the canonical source repository
  */
 
+use DG\BypassFinals;
 use Mockery\ClosureWrapper;
 use Mockery\CompositeExpectation;
 use Mockery\Configuration;
@@ -74,6 +75,40 @@ class Mockery
      * @var list<string>
      */
     private static $_filesToCleanUp = [];
+
+    /**
+     *  Removes `final` and `readonly` keywords from source code
+     *  on-the-fly and allows mocking of final methods and classes.
+     *
+     * @see https://github.com/dg/bypass-finals
+     *
+     * @param bool $bypassReadOnly
+     * @param bool $bypassFinal
+     * @param array<string> $denyPaths
+     * @param array<string> $allowPaths
+     * @param string|null $cacheDirectory
+     */
+    public static function bypassFinals(
+        bool $bypassReadOnly = true,
+        bool $bypassFinal = true,
+        array $denyPaths = [],
+        array $allowPaths = [],
+        ?string $cacheDirectory = null,
+    ): void {
+        if ($cacheDirectory !== null) {
+            BypassFinals::setCacheDirectory($cacheDirectory);
+        }
+
+        BypassFinals::enable($bypassReadOnly, $bypassFinal);
+
+        if ([] !== $allowPaths) {
+            BypassFinals::allowPaths($allowPaths);
+        }
+
+        if ([] !== $denyPaths) {
+            BypassFinals::denyPaths($denyPaths);
+        }
+    }
 
     /**
      * Return instance of AndAnyOtherArgs matcher.
