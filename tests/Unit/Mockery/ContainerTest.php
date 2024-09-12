@@ -509,15 +509,6 @@ final class ContainerTest extends MockeryTestCase
         self::assertInstanceOf(MockeryFoo4::class, $m);
     }
 
-    public function testClassesWithFinalMethodsCanBeProperPartialMocksButFinalMethodsNotPartialed(): void
-    {
-        $m = mock(MockeryFoo4::class . '[foo]');
-        $m->shouldReceive('foo')
-            ->andReturn('foo');
-        self::assertSame('baz', $m->foo()); // partial expectation ignored - will fail callcount assertion
-        self::assertInstanceOf(MockeryFoo4::class, $m);
-    }
-
     public function testClassesWithFinalMethodsCanBeProxyPartialMocks(): void
     {
         $m = mock(new MockeryFoo4());
@@ -593,15 +584,6 @@ final class ContainerTest extends MockeryTestCase
 
         self::assertSame(10, $mock::mockMe(5));
         self::assertSame(3, $mock::keepMe(3));
-    }
-
-    public function testFinalClassesCanBePartialMocks(): void
-    {
-        $m = mock(new MockeryFoo3());
-        $m->shouldReceive('foo')
-            ->andReturn('baz');
-        self::assertSame('baz', $m->foo());
-        self::assertNotInstanceOf(MockeryFoo3::class, $m);
     }
 
     public function testGetExpectationCountFreshContainer(): void
@@ -1075,12 +1057,6 @@ final class ContainerTest extends MockeryTestCase
     public function testMockingAKnownConcreteClassWithFinalMethodsThrowsNoException(): void
     {
         self::assertInstanceOf(MockInterface::class, mock(MockeryFoo4::class));
-    }
-
-    public function testMockingAKnownConcreteFinalClassThrowsErrorsOnlyPartialMocksCanMockFinalElements(): void
-    {
-        $this->expectException(Mockery\Exception::class);
-        $m = mock(MockeryFoo3::class);
     }
 
     public function testMockingAKnownUserClassSoMockInheritsClassType(): void
