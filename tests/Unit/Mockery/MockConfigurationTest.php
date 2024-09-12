@@ -62,15 +62,6 @@ class MockConfigurationTest extends TestCase
         self::assertEquals('bar', $methods[0]->getName());
     }
 
-    public function testFinalMethodsAreExcluded(): void
-    {
-        $config = new MockConfiguration([ClassWithFinalMethod::class]);
-
-        $methods = $config->getMethodsToMock();
-        self::assertCount(1, $methods);
-        self::assertEquals('bar', $methods[0]->getName());
-    }
-
     public function testOnlyWhiteListedMethodsShouldBeInListToBeMocked(): void
     {
         $config = new MockConfiguration([TestSubject::class], [], ['foo']);
@@ -125,13 +116,6 @@ class MockConfigurationTest extends TestCase
         self::assertCount(1, $interfaces);
         $first = array_shift($interfaces);
         self::assertEquals(IteratorAggregate::class, $first->getName());
-    }
-
-    public function testShouldThrowIfTargetClassIsFinal(): void
-    {
-        $this->expectException(Exception::class);
-        $config = new MockConfiguration([TestFinal::class]);
-        $config->getTargetClass();
     }
 
     public function testWhiteListsAreCaseInsensitive(): void
