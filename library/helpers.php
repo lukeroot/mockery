@@ -215,6 +215,6 @@ if (! \function_exists('isPHPUnit')) {
     }
 }
 
-if (isPHPUnit()) {
+if (isPHPUnit() && \class_exists(Mockery::class)) {
     Mockery::bypassFinals();
 }
