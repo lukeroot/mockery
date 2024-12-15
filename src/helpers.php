@@ -63,3 +63,17 @@ if (!function_exists("andAnyOthers")) {
         return new AndAnyOtherArgs();
     }
 }
+
+if (!function_exists("array_is_list")) {
+    function array_is_list($array)
+    {
+        $i = -1;
+        foreach ($array as $k => $v) {
+            ++$i;
+            if ($k !== $i) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
