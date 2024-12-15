@@ -20,6 +20,7 @@
 
 namespace Mockery;
 
+use \ReflectionMethod;
 use Closure;
 use Mockery\Matcher\NoArgs;
 use Mockery\Matcher\AnyArgs;
@@ -423,6 +424,21 @@ class Expectation implements ExpectationInterface
     {
         if (empty($arguments)) {
             return $this->withNoArgs();
+        }
+        if (!array_is_list($arguments)) {
+            $_arguments = [];
+            foreach ((new ReflectionMethod($this->getMock()->mockery_getName(), $this->getName()))->getParameters() as $index => $arg) {
+                if (empty($arguments)) { // Avoid over populating argument list
+                    break;
+                }
+                if (array_key_exists($arg->getName(), $arguments)) {
+                    $_arguments[$index] = $arguments[$arg->getName()];
+                    unset($arguments[$arg->getName()]);
+                    continue;
+                }
+                $_arguments[$index] = $arg->getDefaultValue();
+            }
+            $arguments = $_arguments;
         }
         $this->_expectedArgs = $arguments;
         return $this;
